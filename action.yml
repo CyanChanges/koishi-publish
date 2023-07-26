@@ -4,7 +4,7 @@ inputs:
 	npm-token:
  		description: 'npm token used to publish'
    		required: true
-    node-version:
+	node-version:
     	default: '18'
     	required: false
     	description: Node.js version to use
