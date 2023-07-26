@@ -8,6 +8,10 @@ inputs:
     default: '18'
     required: false
     description: Node.js version to use
+  otp-code:
+  	default: ''
+    required: false
+    description: '2FA Authenticate code'
 
 runs:
   using: composite
@@ -46,4 +50,4 @@ runs:
 
     - name: Publish package
       shell: bash
-      run: yarn yakumo publish
+      run: yarn yakumo publish --otp=${{ inputs.otp-code }}
