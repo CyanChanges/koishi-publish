@@ -18,13 +18,17 @@ runs:
         node-version: ${{ inputs.node-version }}
       
     - name: Install
+    	shell: bash
       run: yarn
 
     - name: Build
+    	shell: bash
       run: yarn build
 
     - name: Set npm token
+    	shell: bash
       run: echo "//registry.npmjs.org/:_authToken=${{ inputs.token }}" > ~/.npmrc
 
-    - name: Publish packages
+    - name: Publish package
+    	shell: bash
       run: yarn pub
