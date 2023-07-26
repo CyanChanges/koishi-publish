@@ -19,11 +19,13 @@ runs:
       
     - name: Install
       shell: bash
-      run: yarn
+      run: |
+      	yarn
+        yarn add yakumo -D
 
     - name: Build
       shell: bash
-      run: yarn build
+      run: yarn yakumo publish
 
     - name: Set npm token
       shell: bash
