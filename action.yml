@@ -46,4 +46,4 @@ runs:
 
     - name: Publish package
       shell: bash
-      run: yarn pub
+      run: yarn yakumo publish
