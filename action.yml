@@ -21,7 +21,7 @@ runs:
       shell: bash
       run: |
         yarn
-        yarn add yakumo typescript yakumo-esbuild yakumo-esbuild-yaml yakumo-publish yakumo-mocha yakumo-tsc yml-register esbuild-register -D
+        yarn add yakumo typescript yakumo-esbuild yakumo-esbuild-yaml yakumo-publish yakumo-mocha mocha esbuild yakumo-tsc yml-register esbuild-register -D
 
     - name: Build
       shell: bash
