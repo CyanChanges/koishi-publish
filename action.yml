@@ -1,33 +1,33 @@
 name: Publish
 
 inputs: 
-	npm-token:
- 		description: 'npm token used to publish'
-   		required: true
-	node-version:
-    		default: '18'
-    		required: false
-    		description: Node.js version to use
+  npm-token:
+     description: 'npm token used to publish'
+       required: true
+  node-version:
+        default: '18'
+        required: false
+        description: Node.js version to use
 
 jobs:
-	using: composite
-	steps:
- 		- uses: actions/checkout@v3
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
 
-   	- name: Setup Node
-		  uses: actions/setup-node@v3
-		  with:
-			node-version: ${{ $inputs.node-version }}
-			
-		- name: Install
-		  run: yarn
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+      node-version: ${{ $inputs.node-version }}
+      
+    - name: Install
+      run: yarn
 
-		- name: Build
-		  run: yarn build
+    - name: Build
+      run: yarn build
 
-		- name: Set npm token
-		  run: |
+    - name: Set npm token
+      run: |
         echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
 
-		- name: Publish packages
-		  run: yarn pub
+    - name: Publish packages
+      run: yarn pub
