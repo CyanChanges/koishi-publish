@@ -1,7 +1,7 @@
 name: Publish
 
 inputs: 
-  npm-token:
+  token:
     description: 'npm token used to publish'
     required: true
   node-version:
@@ -17,7 +17,7 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
-      node-version: ${{ $inputs.node-version }}
+      	node-version: ${{ $inputs.node_version }}
       
     - name: Install
       run: yarn
@@ -26,8 +26,7 @@ jobs:
       run: yarn build
 
     - name: Set npm token
-      run: |
-        echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
+      run: echo "//registry.npmjs.org/:_authToken=${{ inputs.token }}" > ~/.npmrc
 
     - name: Publish packages
       run: yarn pub
