@@ -21,11 +21,24 @@ runs:
       shell: bash
       run: |
       	yarn
-        yarn add yakumo -D
+        yarn add yakumo typescript yakumo-esbuild yakumo-esbuild-yaml yakumo-publish yakumo-tsc yml-register -D
 
     - name: Build
       shell: bash
-      run: yarn yakumo publish
+      run: |
+      	echo "require:
+          - esbuild-register
+          - yakumo-esbuild
+          - yakumo-esbuild-yaml
+          - yakumo-mocha
+          - yakumo-publish
+          - yakumo-publish-sync
+          - yakumo-tsc
+        pipeline:
+          build:
+          	- tsc
+            - esbuild" > yakumo.yml
+      	yarn yakumo publish
 
     - name: Set npm token
       shell: bash
