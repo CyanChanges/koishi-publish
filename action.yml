@@ -26,5 +26,5 @@ jobs:
 		- name: Set npm token
 		  run: |
           	echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
-    	- name: Publish packages
+		- name: Publish packages
 		  run: yarn pub
