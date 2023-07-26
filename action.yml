@@ -13,10 +13,12 @@ jobs:
 	using: composite
 	steps:
  		- uses: actions/checkout@v3
-   		- name: Setup Node
+
+   	- name: Setup Node
 		  uses: actions/setup-node@v3
 		  with:
 			node-version: ${{ $inputs.node-version }}
+			
 		- name: Install
 		  run: yarn
 
@@ -25,6 +27,7 @@ jobs:
 
 		- name: Set npm token
 		  run: |
-          		echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
+        echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
+
 		- name: Publish packages
 		  run: yarn pub
