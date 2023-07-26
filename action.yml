@@ -2,12 +2,12 @@ name: Publish
 
 inputs: 
   npm-token:
-     description: 'npm token used to publish'
-       required: true
+    description: 'npm token used to publish'
+    required: true
   node-version:
-        default: '18'
-        required: false
-        description: Node.js version to use
+    default: '18'
+    required: false
+    description: Node.js version to use
 
 jobs:
   using: composite
