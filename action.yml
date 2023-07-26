@@ -9,7 +9,7 @@ inputs:
     required: false
     description: Node.js version to use
   otp-code:
-  	default: ''
+    default: ''
     required: false
     description: '2FA Authenticate code'
 
